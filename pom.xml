@@ -80,6 +80,17 @@
 		<!-- 第五章数据分页排序案例 -->
 		<module>chapter-5-spring-boot-paging-sorting</module>
 
+		<!--其他实践-->
+		<!--akka 高并发消息驱动模型-->
+		<module>springboot-demo-akka</module>
+		<!--QLExpress 规则引擎-->
+		<module>springboot-demo-qlexpress</module>
+		<!--pulsar 新一代消息中间件-->
+		<module>springboot-demo-pulsar</module>
+		<!--zookeeper-->
+		<module>springboot-demo-zookeeper</module>
+
+
 	</modules>
 
 </project>
