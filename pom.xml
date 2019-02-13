@@ -89,6 +89,8 @@
 		<module>springboot-demo-pulsar</module>
 		<!--zookeeper-->
 		<module>springboot-demo-zookeeper</module>
+		<!--多线程实践-->
+		<module>springboot-demo-thread</module>
 
 
 	</modules>
