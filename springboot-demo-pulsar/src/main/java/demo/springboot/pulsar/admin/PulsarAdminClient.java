@@ -33,9 +33,17 @@ public class PulsarAdminClient {
     //static String topic = "persistent://my-tenant/my-namespace/my-topic";
 
     public static void main(String[] args) {
-        //createTenant();
-        //createNamespace();
+        createTenant();
+        createNamespace();
         createTopic();
+        closePulsarAdmin();
+
+        //-------------------------------------//
+
+//        deleteTopic();
+//        deleteNamespace();
+//        deleteTenant();
+//        closePulsarAdmin();
     }
 
 
@@ -109,11 +117,18 @@ public class PulsarAdminClient {
         }
     }
 
+    /**
+     * 关闭PulsarAdmin
+     */
+    public static void closePulsarAdmin() {
+        getAdmin().close();
+    }
+
 
     /**
      * 删除topic
      */
-    public void deleteTopic() {
+    public static void deleteTopic() {
         try {
             admin = getAdmin();
             admin.topics().deletePartitionedTopic(topicName);
@@ -125,7 +140,7 @@ public class PulsarAdminClient {
     /**
      * 删除 namespace
      */
-    public void deleteNamespace() {
+    public static void deleteNamespace() {
         try {
             admin = getAdmin();
             admin.namespaces().deleteNamespace(nameSpaceName);
@@ -137,7 +152,7 @@ public class PulsarAdminClient {
     /**
      * 删除 tenant
      */
-    public void deleteTenant() {
+    public static void deleteTenant() {
         try {
             admin = getAdmin();
             admin.tenants().deleteTenant(tenantName);
@@ -145,5 +160,6 @@ public class PulsarAdminClient {
             System.err.println("--delete tenant error!--" + e);
         }
     }
+
 
 }
