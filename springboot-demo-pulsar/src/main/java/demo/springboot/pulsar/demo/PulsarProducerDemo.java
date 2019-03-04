@@ -16,12 +16,13 @@ public class PulsarProducerDemo {
             // 然后你就可以发送消息到指定的broker 和topic上：
             String msg = "My message!";
 
-            //发送普通消息
-            Long start = System.currentTimeMillis();
-            MessageId msgId = producer.send(msg.getBytes());
-            System.err.println("spend=" + (System.currentTimeMillis() - start) + ";send a message msgId = " + msgId.toString());
+            for (int i = 0; i < 1; i++) {
+                //发送普通消息
+                Long start = System.currentTimeMillis();
+                MessageId msgId = producer.send((msg + i).getBytes());
+                System.err.println("spend=" + (System.currentTimeMillis() - start) + ";send a message msgId = " + msgId.toString());
 
-
+            }
             //./bin/pulsar-admin topics create-partitioned-topic persistent://my-tenant/my-namespace/my-topic -p 3
             //发送带元数据的消息
             /*
@@ -31,6 +32,7 @@ public class PulsarProducerDemo {
             MessageId msgId = messageBuilder.send();
             System.err.println("spend=" + (System.currentTimeMillis() - start) + ";send a message msgId = " + msgId.toString());
             */
+            producer.close();
 
         } catch (Exception e) {
             System.err.println(e);
@@ -40,6 +42,9 @@ public class PulsarProducerDemo {
     public static Producer<byte[]> getProducer() throws Exception {
         PulsarClient client;
         client = PulsarClient.builder().serviceUrl(localClusterUrl).build();
+
+        //admin.namespaces().grantPermissionOnNamespace(nameSpaceName,role,action);
+
         //persistent://test-tenant-1/test-namespace-1/test-topic-1
         //Producer<byte[]> producer = client.newProducer().topic("persistent://my-tenant/my-namespace/my-topic").producerName("producerName").create();
         Producer<byte[]> producer = client.newProducer().topic("persistent://test-tenant-1/test-namespace-1/test-topic-1").producerName("producerName").create();

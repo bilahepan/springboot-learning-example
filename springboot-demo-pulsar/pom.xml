@@ -86,15 +86,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--scalates-->
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.10</artifactId>
-            <version>3.0.0</version>
-            <scope>test</scope>
-        </dependency>
-
-
         <!-- fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>

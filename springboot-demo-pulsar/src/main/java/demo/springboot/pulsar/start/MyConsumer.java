@@ -42,8 +42,6 @@ public class MyConsumer {
 
 
     /**
-     *
-     *
      * //consumer 配置
      * //http://pulsar.apache.org/api/client/org/apache/pulsar/client/api/ConsumerBuilder
      * {

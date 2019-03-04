@@ -75,7 +75,7 @@ public class MyProducer {
          *   "blockIfQueueFull" : false, //消息队列已满时是否阻止发送操作 默认false,当消息队列满，发送操作将立即失败
          *   "maxPendingMessages" : 1000,//设置等待接收来自broker的确认消息的队列的最大大小,队列满试,blockIfQueueFull=true才有效
          *   "maxPendingMessagesAcrossPartitions" : 50000,//设置所有分区的最大挂起消息数
-         *   "messageRoutingMode" : "CustomPartition", //消息分发路由模式  CustomPartition；RoundRobinPartition 环形遍历分区；SinglePartition 随机选择一个分区 // 参考 http://pulsar.apache.org/docs/zh-CN/2.2.0/cookbooks-partitioned/
+         *   "messageRoutingMode" : "CustomPartition", //消息分发路由模式  CustomPartition；RoundRobinPartition 环形遍历分区；SinglePartition 随机选择一个分区 //参考http://pulsar.apache.org/docs/zh-CN/2.2.0/cookbooks-partitioned/
          *   "hashingScheme" : "JavaStringHash",//更改用于选择在何处发布特定消息的分区的哈希方案
          *   "cryptoFailureAction" : "FAIL",//为失效的生产者指定一个默认的特定值
          *   "batchingMaxPublishDelayMicros" : 1000,//设置发送的消息将被成批处理的时间段默认值：如果启用了成批消息，则为1毫秒。
