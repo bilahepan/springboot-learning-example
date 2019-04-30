@@ -13,7 +13,7 @@ public class ProducerExample {
             Producer<byte[]> producer = getProducer();
             String extContent = "msg.";
             String msg = "My message! " + "extContent=" + extContent + "my num is =";
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 1000000; i++) {
                 TypedMessageBuilder messageBuilder = producer.newMessage().key(i + "").value((msg + i).toString().getBytes());
                 //发送普通消息
                 Long start = System.currentTimeMillis();
@@ -35,7 +35,7 @@ public class ProducerExample {
                     @Override
                     public int choosePartition(Message<?> message, TopicMetadata metadata) {
                         System.out.println("key=" + message.getKey() + ";" + "hash=" + Math.abs(message.getKey().hashCode()) % 3);
-                        return Math.abs(message.getKey().hashCode()) % 3;
+                        return Math.abs(message.getKey().hashCode()) % MqConfigs.PARTITION_NUM;
                     }
                 }).create();
         return producer;

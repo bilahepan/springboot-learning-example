@@ -27,7 +27,7 @@ public class ThreadPoolFactory {
         /**
          * 线程池
          */
-        private static final ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(3, 15, 30, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>(5000),
+        private static final ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(3, MqConfigs.PARTITION_NUM, 30, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>(5000),
                 Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
     }
 }

@@ -12,6 +12,6 @@ public class MqConfigs {
 
 
     public final static Integer MAX_REDELIVER_COUNT = 3;
-    public final static Integer CONSUMER_NUM = 3;
+    public final static Integer PARTITION_NUM = 11;
 
 }

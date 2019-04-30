@@ -1,6 +1,5 @@
 package demo.springboot.pulsar.sample;
 
-import demo.springboot.pulsar.sdk.MqEnv;
 import org.apache.pulsar.client.api.Consumer;
 import org.apache.pulsar.client.api.DeadLetterPolicy;
 import org.apache.pulsar.client.api.PulsarClientException;
@@ -21,7 +20,7 @@ public class PulsarConsumerPoolFactory {
 
     private static class InitializingConsumerPool {
         private static final ConcurrentHashMap<Integer, Consumer> pool = new ConcurrentHashMap<Integer, Consumer>() {{
-            for (int i = 1; i <= MqConfigs.CONSUMER_NUM; i++) {
+            for (int i = 1; i <= MqConfigs.PARTITION_NUM; i++) {
                 put(i, getConsumerInstance());
             }
         }};
