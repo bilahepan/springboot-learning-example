@@ -20,7 +20,7 @@ public class Worker implements Runnable {
     public void run() {
         try {
             this.doWork();
-            TimeUnit.SECONDS.sleep(new Random().nextInt(10));
+            TimeUnit.SECONDS.sleep(new Random().nextInt(1));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

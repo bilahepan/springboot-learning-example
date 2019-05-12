@@ -13,21 +13,17 @@ public class Demo2Test {
         ExecutorService executor = Executors.newCachedThreadPool();
 
         CountDownLatch latch = new CountDownLatch(3);
+        Boss boss = new Boss(latch);
 
         Worker w1 = new Worker(latch, "张三");
         Worker w2 = new Worker(latch, "李四");
         Worker w3 = new Worker(latch, "王二");
 
-        Boss boss = new Boss(latch);
 
         executor.submit(w1);
         executor.submit(w2);
         executor.submit(w3);
         executor.execute(boss);
-//        executor.execute(w3);
-//        executor.execute(w2);
-//        executor.execute(w1);
-//        executor.execute(boss);
 
         executor.shutdown();
     }

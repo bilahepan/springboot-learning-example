@@ -1,4 +1,5 @@
-package demo.springboot.zk.distributelock;
+package demo.springboot.zookeeper.distributelock;
+
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
@@ -30,14 +31,14 @@ public class DistributedLock implements Lock, Watcher {
     /**
      * 创建分布式锁,使用前请确认config配置的zookeeper服务可用
      *
-     * @param config   127.0.0.1:2181
+     * @param zkAdress   127.0.0.1:2181
      * @param lockName 竞争资源标志,lockName中不能包含单词lock
      */
-    public DistributedLock(String config, String lockName) {
+    public DistributedLock(String zkAdress, String lockName) {
         this.lockName = lockName;
         // 创建一个与服务器的连接
         try {
-            zk = new ZooKeeper(config, sessionTimeout, this);
+            zk = new ZooKeeper(zkAdress, sessionTimeout, this);
             Stat stat = zk.exists(root, false);
             if (stat == null) {
                 // 创建根节点

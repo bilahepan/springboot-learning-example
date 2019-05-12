@@ -1,4 +1,4 @@
-package demo.springboot.zk.distributelock;
+package demo.springboot.thread.exercise.other;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,9 +9,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author: bilahepan
- * @date: 2018/12/27 下午9:56
+ * @date: 2019/5/12 下午4:40
  */
 public class ConcurrentTest {
+
 
     private CountDownLatch startSignal = new CountDownLatch(1);//开始阀门
     private CountDownLatch doneSignal = null;//结束阀门
@@ -94,5 +95,4 @@ public class ConcurrentTest {
     public interface ConcurrentTask {
         void run();
     }
-
 }

@@ -4,9 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- *
- *@author: bilahepan
- *@date: 2018/12/2 下午7:55
+ * @author: bilahepan
+ * @date: 2018/12/2 下午7:55
  */
 @SpringBootApplication//@SpringBootApplication：Spring Boot 应用的标识
 public class QuickStartApplication {

@@ -1,4 +1,4 @@
-package demo.springboot.zk;
+package demo.springboot.zookeeper.helloworld;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -7,17 +7,14 @@ import org.apache.zookeeper.ZooKeeper;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
-import org.apache.zookeeper.Watcher.Event.KeeperState;
-
 /**
- * @author: bilahepan
- * @date: 2018/12/27 上午9:46
+ *
+ *@author: bilahepan
+ *@date: 2019/5/12 下午4:43
  */
-public class ZooKeeperConnection {
-    private ZooKeeper zoo;
+public class ZKConnectionDemo {
+    private ZooKeeper zkClient;
     final CountDownLatch connectedSignal = new CountDownLatch(1);
-
-
 
     /**
      * 连接zk服务器
@@ -27,17 +24,15 @@ public class ZooKeeperConnection {
      * @throws InterruptedException
      */
     public ZooKeeper connect(String host) throws IOException, InterruptedException {
-        zoo = new ZooKeeper(host, 5000, new Watcher() {
-
+        zkClient = new ZooKeeper(host, 5000, new Watcher() {
             public void process(WatchedEvent we) {
-                if (we.getState() == KeeperState.SyncConnected) {
+                if (we.getState() == Event.KeeperState.SyncConnected) {
                     connectedSignal.countDown();
                 }
             }
         });
-
         connectedSignal.await();
-        return zoo;
+        return zkClient;
     }
 
     /**
@@ -53,7 +48,7 @@ public class ZooKeeperConnection {
         ZooKeeper zooKeeper = new ZooKeeper(host, 5000, new Watcher() {
 
             public void process(WatchedEvent we) {
-                if (we.getState() == KeeperState.SyncConnected) {
+                if (we.getState() == Event.KeeperState.SyncConnected) {
                     connectedSignal.countDown();
                 }
             }
@@ -69,7 +64,7 @@ public class ZooKeeperConnection {
      * @throws InterruptedException
      */
     public void close() throws InterruptedException {
-        zoo.close();
+        zkClient.close();
     }
 
 

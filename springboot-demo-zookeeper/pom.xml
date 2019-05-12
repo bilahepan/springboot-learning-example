@@ -38,7 +38,7 @@
             <scope>test</scope>
         </dependency>
 
-       <!--zookeeper-->
+        <!--zookeeper-->
         <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
@@ -46,19 +46,14 @@
             <version>3.4.6</version>
             <type>pom</type>
         </dependency>
-        <dependency>
-            <groupId>demo.springboot</groupId>
-            <artifactId>springboot-demo-zookeeper</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
 
-
+        <!--ZkClient是对Zookeeper的原生API进行了包装，实现了超时重连、Watcher反复注册等功能。-->
+        <!--详细用法参考 https://blog.csdn.net/wo541075754/article/details/68929512 -->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
     </dependencies>
 
     <build>
