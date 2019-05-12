@@ -9,5 +9,5 @@ public interface Lock {
     public void getLock();
 
     // 释放锁
-    public void unLock();
+    public void releaseLock();
 }
