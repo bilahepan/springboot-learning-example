@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
  * 用于适合一组线程在同一时刻开始执行某个任务
  * 或者等待一组相关操作的结束
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/15 下午1:01
  */
 public class CountDownLatchTest {

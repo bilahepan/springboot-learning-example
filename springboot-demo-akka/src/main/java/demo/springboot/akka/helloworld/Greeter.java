@@ -1,7 +1,7 @@
 package demo.springboot.akka.helloworld;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/2 下午8:13
  */
 

@@ -2,7 +2,7 @@ package demo.springboot.thread.yield;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2019/2/13 下午12:42
  */
 class MyThreadYield extends Thread {

@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午7:21
  */
 public class FutureExecutor {

@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * Kafka 生产者demo
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/11/7 下午2:43
  */
 public class KafkaProducerTest implements Runnable {

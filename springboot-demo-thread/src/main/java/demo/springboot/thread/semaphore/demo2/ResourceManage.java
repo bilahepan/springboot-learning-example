@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/19 下午12:46
  */
 public class ResourceManage {

@@ -1,7 +1,7 @@
 package demo.springboot.akka.helloworld;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/2 下午8:02
  */
 
@@ -13,7 +13,7 @@ import akka.event.LoggingAdapter;
 /**
  * 官方 helloworld 示例
  * https://developer.lightbend.com/guides/akka-quickstart-java/define-actors.html
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/2 下午8:12
  */
 public class Printer extends AbstractActor {

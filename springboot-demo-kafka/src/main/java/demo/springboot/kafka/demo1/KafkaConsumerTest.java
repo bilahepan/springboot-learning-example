@@ -12,7 +12,7 @@ import java.util.Properties;
 /**
  * kafka 消费者demo
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/11/7 下午2:41
  */
 public class KafkaConsumerTest implements Runnable {

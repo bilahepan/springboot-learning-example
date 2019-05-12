@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/3 上午10:24
  */
 public class IotSupervisor extends AbstractActor {

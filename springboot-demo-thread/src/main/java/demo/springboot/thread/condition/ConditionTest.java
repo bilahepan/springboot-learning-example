@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午5:38
  */
 public class ConditionTest {

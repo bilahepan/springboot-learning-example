@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * 数组操作-测试
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/18 上午10:18
  */
 public class ArrayListTest {

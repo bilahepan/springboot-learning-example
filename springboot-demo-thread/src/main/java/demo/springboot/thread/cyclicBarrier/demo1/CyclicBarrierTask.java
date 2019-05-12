@@ -8,7 +8,7 @@ import java.util.concurrent.CyclicBarrier;
  * 所有线程必须同时到达栅栏位置，才能继续执行下一步操作。
  * 且可以被重置，以达到可以重复使用。
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/15 下午2:09
  */
 public class CyclicBarrierTask implements Runnable {

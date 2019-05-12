@@ -1,7 +1,7 @@
 package demo.springboot.thread.yield;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 上午10:49
  */
 public class TestYield {

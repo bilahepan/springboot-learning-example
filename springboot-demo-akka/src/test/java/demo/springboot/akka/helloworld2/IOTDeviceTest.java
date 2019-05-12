@@ -13,7 +13,7 @@ import java.util.Optional;
 import static junit.framework.TestCase.assertEquals;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/3 下午9:33
  */
 public class IOTDeviceTest {

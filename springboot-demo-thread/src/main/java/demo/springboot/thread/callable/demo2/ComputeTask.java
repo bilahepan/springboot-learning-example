@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/10/18 下午7:37
  */
 public class ComputeTask implements Callable<Integer> {

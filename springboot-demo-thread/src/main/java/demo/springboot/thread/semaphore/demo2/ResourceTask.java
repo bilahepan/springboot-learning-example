@@ -1,7 +1,7 @@
 package demo.springboot.thread.semaphore.demo2;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/19 下午12:47
  */
 public class ResourceTask implements Runnable {

@@ -3,7 +3,7 @@ package demo.springboot.pulsar.thread;
 import java.util.concurrent.*;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/1/23 上午9:46
  */
 public class ThreadPoolFactory {
@@ -20,7 +20,7 @@ public class ThreadPoolFactory {
      * 核心线程数 3
      * 最大线程数 15
      *
-     * @author: 文若[gaotc@tuya.com]
+     * @author: bilahepan
      * @date: 2018/12/4 下午4:13
      */
     public static class CustomThreadPoolExecutorHolder {

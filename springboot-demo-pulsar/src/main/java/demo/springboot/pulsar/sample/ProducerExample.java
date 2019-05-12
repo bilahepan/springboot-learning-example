@@ -3,7 +3,7 @@ package demo.springboot.pulsar.sample;
 import org.apache.pulsar.client.api.*;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/1/3 下午4:51
  */
 public class ProducerExample {

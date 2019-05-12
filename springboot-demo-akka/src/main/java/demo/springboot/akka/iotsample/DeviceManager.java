@@ -13,7 +13,7 @@ import akka.event.LoggingAdapter;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/3 下午11:21
  */
 //#device-manager-full

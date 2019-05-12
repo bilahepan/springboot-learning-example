@@ -1,7 +1,7 @@
 package demo.springboot.thread.countDownLatch.demo1;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/15 下午1:06
  */
 public class CountDownLatchTask implements Runnable {

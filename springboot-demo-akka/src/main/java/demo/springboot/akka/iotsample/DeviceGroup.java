@@ -2,7 +2,7 @@ package demo.springboot.akka.iotsample;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/3 下午11:24
  */
 import java.util.Set;

@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/1/30 下午4:24
  */
 public class PulsarAdminClient {

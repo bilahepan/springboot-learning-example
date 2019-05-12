@@ -4,7 +4,7 @@ import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/17 下午3:50
  *
  * 测试用例：

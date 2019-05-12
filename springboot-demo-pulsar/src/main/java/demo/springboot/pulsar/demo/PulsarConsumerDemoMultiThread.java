@@ -4,7 +4,7 @@ import demo.springboot.pulsar.thread.ThreadPoolFactory;
 import org.apache.pulsar.client.api.*;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/1/3 上午9:42
  */
 public class PulsarConsumerDemoMultiThread {

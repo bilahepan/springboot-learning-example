@@ -7,7 +7,7 @@ import com.ql.util.express.ExpressRunner;
 import org.junit.Test;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/17 下午5:17
  */
 public class AClassDefine {

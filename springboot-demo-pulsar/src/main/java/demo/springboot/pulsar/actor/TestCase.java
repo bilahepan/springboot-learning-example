@@ -6,7 +6,7 @@ import akka.actor.ActorSystem;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/1/10 下午10:22
  */
 public class TestCase {

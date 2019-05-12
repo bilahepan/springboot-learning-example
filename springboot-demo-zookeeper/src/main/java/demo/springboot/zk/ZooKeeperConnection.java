@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/27 上午9:46
  */
 public class ZooKeeperConnection {

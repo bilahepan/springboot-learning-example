@@ -1,7 +1,7 @@
 package demo.springboot.thread.join;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 上午9:50
  */
 public class JoinTest {

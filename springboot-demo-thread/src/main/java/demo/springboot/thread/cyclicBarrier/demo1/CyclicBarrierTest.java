@@ -3,7 +3,7 @@ package demo.springboot.thread.cyclicBarrier.demo1;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/15 下午2:08
  */
 public class CyclicBarrierTest {

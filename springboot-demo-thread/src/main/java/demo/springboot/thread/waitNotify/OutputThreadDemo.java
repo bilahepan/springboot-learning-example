@@ -3,7 +3,7 @@ package demo.springboot.thread.waitNotify;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 上午11:12
  */
 public class OutputThreadDemo {

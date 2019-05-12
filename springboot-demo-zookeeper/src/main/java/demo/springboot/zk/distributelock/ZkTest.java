@@ -4,7 +4,7 @@ import demo.springboot.zk.distributelock.ConcurrentTest;
 import demo.springboot.zk.distributelock.DistributedLock;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/27 下午9:57
  */
 

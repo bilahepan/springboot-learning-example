@@ -3,7 +3,7 @@ package demo.springboot.thread.semaphore.demo3;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/19 下午2:03
  */
 public class Demo3Task extends Thread {

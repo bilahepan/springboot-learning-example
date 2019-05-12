@@ -6,7 +6,7 @@ import com.ql.util.express.ExpressRunner;
 /**
  * If 条件测试
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/12/18 下午2:53
  */
 public class IfTest {

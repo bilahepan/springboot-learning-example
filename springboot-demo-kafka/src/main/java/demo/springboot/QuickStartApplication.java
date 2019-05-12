@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/2 下午7:55
  */
 @SpringBootApplication//@SpringBootApplication：Spring Boot 应用的标识

@@ -3,7 +3,7 @@ package demo.springboot.thread.callable.demo1;
 import java.util.concurrent.Callable;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午7:19
  */
 public class CallableTask implements Callable<Long> {

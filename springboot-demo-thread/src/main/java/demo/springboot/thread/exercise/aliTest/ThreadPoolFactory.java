@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 /**
  * 线程池工厂
  *
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午8:27
  */
 public class ThreadPoolFactory {

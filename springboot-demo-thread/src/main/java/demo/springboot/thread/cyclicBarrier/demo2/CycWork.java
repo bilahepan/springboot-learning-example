@@ -3,7 +3,7 @@ package demo.springboot.thread.cyclicBarrier.demo2;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/19 下午6:46
  */
 public class CycWork implements Runnable {

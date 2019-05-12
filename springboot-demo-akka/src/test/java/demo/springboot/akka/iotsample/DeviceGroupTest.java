@@ -2,7 +2,7 @@ package demo.springboot.akka.iotsample;
 
 /**
  *https://github.com/akka/akka/tree/v2.5.18/akka-docs/src/test/java/jdocs/tutorial_4
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/12/3 下午11:29
  */
 import java.util.stream.Stream;

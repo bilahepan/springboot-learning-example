@@ -3,7 +3,7 @@ package demo.springboot.thread.countDownLatch.demo2;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/19 下午6:23
  */
 public class Boss implements Runnable {

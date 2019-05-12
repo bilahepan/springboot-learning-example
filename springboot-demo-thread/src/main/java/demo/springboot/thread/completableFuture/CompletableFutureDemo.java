@@ -4,7 +4,7 @@ package demo.springboot.thread.completableFuture;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 上午9:39
  */
 public class CompletableFutureDemo {

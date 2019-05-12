@@ -3,7 +3,7 @@ package demo.springboot.thread.semaphore.demo1;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午6:04
  */
 public class SemaphoreTest {

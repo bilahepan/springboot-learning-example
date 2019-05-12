@@ -3,7 +3,7 @@ package demo.springboot.thread.exercise.aliTest;
 import java.util.concurrent.Callable;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2018/10/18 下午8:11
  */
 public class PayTask implements Callable<ConsultResult> {

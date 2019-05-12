@@ -1,7 +1,7 @@
 package demo.springboot.thread.join;
 
 /**
- * @author: 文若[gaotc@tuya.com]
+ * @author: bilahepan
  * @date: 2019/2/13 下午12:44
  */
 class MyJoinThread extends Thread {

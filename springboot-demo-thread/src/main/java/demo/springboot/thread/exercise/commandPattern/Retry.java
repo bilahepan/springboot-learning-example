@@ -2,7 +2,7 @@ package demo.springboot.thread.exercise.commandPattern;
 
 /**
  *
- *@author: 文若[gaotc@tuya.com]
+ *@author: bilahepan
  *@date: 2018/10/18 下午7:40
  */
 public class Retry {
