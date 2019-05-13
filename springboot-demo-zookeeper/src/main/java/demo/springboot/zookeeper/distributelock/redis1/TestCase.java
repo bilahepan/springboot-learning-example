@@ -1,4 +1,4 @@
-package demo.springboot.zookeeper.distributelock.case3;
+package demo.springboot.zookeeper.distributelock.redis1;
 
 /**
  * @author: bilahepan
