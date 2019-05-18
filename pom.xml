@@ -93,7 +93,8 @@
         <module>springboot-demo-thread</module>
         <!--kafka实践-->
         <module>springboot-demo-kafka</module>
-
+        <!--Netty实践-->
+        <module>springboot-demo-netty</module>
 
         <!-- 性能优化的一些积累-->
         <module>springboot-demo-optimizing</module>
