@@ -1,4 +1,4 @@
-package demo.springboot.pulsar.sample;
+package demo.springboot.pulsar.multithread;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;

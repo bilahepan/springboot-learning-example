@@ -1,4 +1,4 @@
-package demo.springboot.pulsar.sample;
+package demo.springboot.pulsar.multithread;
 
 /**
  * @author: bilahepan

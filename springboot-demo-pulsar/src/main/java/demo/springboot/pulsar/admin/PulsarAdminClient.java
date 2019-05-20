@@ -7,8 +7,6 @@ import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.common.policies.data.AuthAction;
 import org.apache.pulsar.common.policies.data.TenantInfo;
 import org.apache.pulsar.shade.com.google.common.collect.ImmutableSet;
-import org.apache.pulsar.shade.com.google.common.collect.Sets;
-import org.apache.tomcat.util.net.openssl.OpenSSLUtil;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -129,45 +127,6 @@ public class PulsarAdminClient {
         }
     }
 
-
-    /**
-     * public void createTopic(){
-     *         topicName = judgeValue("topicName");
-     *         numPartitions = Integer.parseInt( judgeValue("numPartitions") );
-     *
-     *         try {
-     *             log.info( "开始创建topic : "  + topicName );
-     *             admin.topics().createPartitionedTopic(topicName,numPartitions);
-     *             log.info( "topic创建成功 : "  + topicName );
-     *         } catch (PulsarAdminException e) {
-     *             log.info( "topic已存在 : "  + topicName );
-     *         }
-     * //  设置权限
-     *         try {
-     *             String role1 = "*.role";
-     * //            String topicName1 = "persistent://" + property +  "/"+ namespace + "/my-topic1";
-     *             Set<AuthAction> actions1  = Sets.newHashSet(AuthAction.produce, AuthAction.consume);
-     *             admin.topics().grantPermission( topicName , role1, actions1);
-     *             log.info( "设置用户权限成功" );
-     *         } catch (PulsarAdminException e) {
-     *         }
-     *     }
-     *
-     *
-     * bin/pulsar-admin persistent grant-permission \ --actions consume --role {accessid} \ persistent://{accessid}/out/event
-     * 长久的授权给客户端角色，允许它在给定的topic {accessid}/out/event 上执行消费动作
-     *
-     *
-     * ---
-     * ./bin/pulsar-admin topics grant-permission  persistent://{accessid}/out/event --actions consume --role {accessid}
-     * ---
-     *
-     *
-     *
-     * $ pulsar-admin topics grant-permission {persistent|non-persistent}://tenant/namespace/topic options
-     * --actions	Actions to be granted (produce or consume)
-     * --role	The client role to which to grant the permissions
-     */
 
 
     /**

@@ -1,4 +1,4 @@
-package demo.springboot.pulsar.start;
+package demo.springboot.pulsar.demo;
 
 /**
  * @author: bilahepan
