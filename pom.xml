@@ -95,9 +95,12 @@
         <module>springboot-demo-kafka</module>
         <!--Netty实践-->
         <module>springboot-demo-netty</module>
+        <!--Sentinel实践-->
+        <module>springboot-demo-sentinel</module>
 
         <!-- 性能优化的一些积累-->
         <module>springboot-demo-optimizing</module>
+
 
 
     </modules>
