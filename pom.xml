@@ -108,6 +108,8 @@
         <module>springboot-demo-web</module>
         <!-- 博客文章积累-->
         <module>springboot-demo-blogs</module>
+        <!-- 示例-->
+        <module>springboot-demo-example</module>
 
 
     </modules>
