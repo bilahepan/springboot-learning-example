@@ -102,7 +102,12 @@
 
         <!-- 性能优化的一些积累-->
         <module>springboot-demo-optimizing</module>
-
+        <!-- 一些工具类的积累-->
+        <module>springboot-demo-utils</module>
+        <!-- web,mvc实践-->
+        <module>springboot-demo-web</module>
+        <!-- 博客文章积累-->
+        <module>springboot-demo-blogs</module>
 
 
     </modules>
