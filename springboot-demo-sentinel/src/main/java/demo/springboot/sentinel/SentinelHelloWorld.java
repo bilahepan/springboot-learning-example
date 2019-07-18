@@ -15,7 +15,7 @@ import java.util.List;
  * @author: 文若[gaotc@tuya.com]
  * @date: 2019/6/2 下午2:03
  */
-public class SentinelSampleDemo {
+public class SentinelHelloWorld {
 
     public static void main(String[] args) {
         // 配置规则.

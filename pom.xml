@@ -97,6 +97,8 @@
         <module>springboot-demo-netty</module>
         <!--Sentinel实践-->
         <module>springboot-demo-sentinel</module>
+        <!--caffeine 本地缓存实践 -->
+        <module>springboot-demo-caffeine</module>
 
         <!-- 性能优化的一些积累-->
         <module>springboot-demo-optimizing</module>

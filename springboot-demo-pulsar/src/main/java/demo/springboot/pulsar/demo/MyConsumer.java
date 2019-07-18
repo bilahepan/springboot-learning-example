@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class MyConsumer {
     private static final Logger log = LoggerFactory.getLogger(MyConsumer.class);
-    private static final String SERVER_URL = "pulsar://localhost:6650";
+    private static final String SERVER_URL = "pulsar://172.20.41.12:6650";
 
     public static void main(String[] args) throws Exception {
         // 构造Pulsar Client
@@ -23,18 +23,27 @@ public class MyConsumer {
                 .serviceUrl(SERVER_URL)
                 .build();
 
+        //灰柯（张永红） 6-18 上午 10:54
+        //j5eegctww4yvawmkqpk4/internal
+        //j5eegctww4yvawmkqpk4_1/internal
+        //j5eegctww4yvawmkqpk4_2/internal
+        //
+        //灰柯（张永红） 6-18 上午 10:54
+        //172.20.41.12:6650
+
         Consumer consumer = client.newConsumer()
                 .consumerName("my-consumer")
-                .topic("persistent://public/pulsar-cluster/default/my-topic")
-                .subscriptionName("my-subscription")
+                .topic("persistent://j5eegctww4yvawmkqpk4/out/event")
+                .subscriptionName("ferrari")
                 .ackTimeout(10, TimeUnit.SECONDS)
-                .subscriptionType(SubscriptionType.Exclusive)
+                .subscriptionType(SubscriptionType.Failover)
                 .subscribe();
         do {
             // 接收消息有两种方式：异步和同步
             // CompletableFuture<Message<String>> message = consumer.receiveAsync();
             Message message = consumer.receive();
-            log.info("get message from pulsar cluster,{}", new String(message.getData()));
+            //log.info("get message from pulsar cluster,{}", new String(message.getData()));
+            System.err.println("get message from pulsar cluster, msg = " + new String(message.getData()));
             //消息确认，broker 对消息进行删除
             consumer.acknowledge(message);
         } while (true);
