@@ -13,6 +13,9 @@ public class BeanCopyUtil {
     private static final Logger logger = LoggerFactory.getLogger(BeanCopyUtil.class);
 
     /**
+     * ----------
+     * 属性名称相同类型相同的属性拷贝OK。
+     * -----------
      * Bean拷贝工具
      *
      * @param source
@@ -67,7 +70,9 @@ public class BeanCopyUtil {
     }
 
     /**
-     *
+     *----------
+     * 属性名称相同类型相同的属性拷贝OK。
+     *-----------
      * List拷贝工具
      *
      * @param sourceList
