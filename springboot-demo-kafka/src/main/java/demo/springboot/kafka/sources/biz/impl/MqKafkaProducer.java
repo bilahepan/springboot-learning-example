@@ -1,10 +1,5 @@
 package demo.springboot.kafka.sources.biz.impl;
 
-/**
- * @author: 文若[gaotc@tuya.com]
- * @date: 2019/7/28 下午5:46
- */
-
 import com.google.common.base.Charsets;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
@@ -28,8 +23,8 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 /**
- * Created by kedumin on 16/7/26.
- * http://docs.spring.io/spring-kafka/reference/htmlsingle/
+ * @author: 文若[gaotc@tuya.com]
+ * @date: 2019/7/29 下午11:28
  */
 public class MqKafkaProducer<T> implements IMqKafkaProducer<T>, InitializingBean {
 

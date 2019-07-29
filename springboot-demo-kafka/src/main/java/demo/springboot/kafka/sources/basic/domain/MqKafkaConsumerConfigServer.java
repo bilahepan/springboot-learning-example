@@ -18,17 +18,10 @@ public class MqKafkaConsumerConfigServer {
 
     protected static Logger logger = LoggerFactory.getLogger(MqKafkaConsumerConfigServer.class);
 
-    /**
-     *
-     * key:topic
-     * value:MqKafkaConsumerConfig
-     *
-     * */
+    //key:topic value:MqKafkaConsumerConfig
     protected Map<String, MqKafkaConsumerConfig> consumerConfigMap = null;
 
-    /**
-     * kafka原生配置信息
-     */
+    //kafka原生配置信息
     private Map<String, Object> nativeConsumerConfigs;
 
     public MqKafkaConsumerConfigServer(List<MqKafkaConsumerConfig> consumerConfigs) {
@@ -61,7 +54,6 @@ public class MqKafkaConsumerConfigServer {
 
     /**
      * 根据key获取kafka消费者原生配置的value
-     *
      * @param key 原生配置key
      * @return 不存在则返回null
      */
