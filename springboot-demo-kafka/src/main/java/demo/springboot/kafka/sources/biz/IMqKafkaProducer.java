@@ -17,16 +17,7 @@ public interface IMqKafkaProducer<T> {
 
     MqKafkaSendResult send(String topic, MqKafkaData<T> value, String key);
 
-    /**
-     * kafka同步生产数据接口
-     * 使用MurmurHash3计算32-bits哈希值 {@link Hashing#murmur3_32()};有效改善分区数据倾斜问题
-     *
-     * @param topic
-     * @param value
-     * @param key
-     * @param partition 指定分区
-     * @return
-     */
+    //同步生产数据接口-指定分区
     MqKafkaSendResult send(String topic, MqKafkaData<T> value, String key, Integer partition);
 
     /**
@@ -43,9 +34,7 @@ public interface IMqKafkaProducer<T> {
     MqKafkaSendResult send(String topic, MqKafkaData<T> value, String key, Integer partitions, String keyWord);
 
 
-    /**
-     * kafka同步生产数据接口，指定关键字来自动路由分区(Integer 类型)
-     */
+    //kafka同步生产数据接口，指定关键字来自动路由分区(Integer 类型)
     MqKafkaSendResult send(String topic, MqKafkaData<T> value, String key, Integer partitions, Integer keyWord);
 
     /**
@@ -60,13 +49,12 @@ public interface IMqKafkaProducer<T> {
      */
     Future<SendResult<String, MqKafkaData<T>>> asyncSend(String topic, MqKafkaData<T> value, String key, Integer partitions, String keyWord);
 
-    /**
-     * kafka异步生产数据接口
-     */
+    //kafka异步生产数据接口
     Future<SendResult<String, MqKafkaData<T>>> asyncSend(String topic, MqKafkaData<T> value, String key, Integer partition);
 
 
     MqKafkaSendResult syncSend(String topic, MqKafkaData<T> value);
+
 
     MqKafkaSendResult syncSend(String topic, MqKafkaData<T> value, String key);
 

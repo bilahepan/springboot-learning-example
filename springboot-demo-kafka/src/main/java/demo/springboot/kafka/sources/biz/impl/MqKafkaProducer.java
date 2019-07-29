@@ -185,6 +185,7 @@ public class MqKafkaProducer<T> implements IMqKafkaProducer<T>, InitializingBean
      * @param partition
      * @return
      */
+    @Override
     public Future<SendResult<String, MqKafkaData<T>>> asyncSend(String topic, MqKafkaData<T> value, String key, Integer partition) {
         if (kafkaTemplate == null) {
             throw new RuntimeException("同步模式,需要注入kafkaTemplate");
