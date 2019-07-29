@@ -18,7 +18,7 @@ public class MqKafkaConsumerConfig {
 
     private String key;
 
-    private IMqKafkaBizConsumer consumer;
+    private IMqKafkaBizConsumer consumer;//消费者
 
     private Boolean ignore = false;//不管异常，直接跳过，不重试
 
