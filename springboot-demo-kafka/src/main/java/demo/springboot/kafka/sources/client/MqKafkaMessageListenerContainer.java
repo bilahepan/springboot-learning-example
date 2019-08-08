@@ -2,7 +2,7 @@ package demo.springboot.kafka.sources.client;
 
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
-import org.springframework.kafka.listener.ContainerProperties;
+import org.springframework.kafka.listener.config.ContainerProperties;
 
 /**
  * @author: 文若[gaotc@tuya.com]

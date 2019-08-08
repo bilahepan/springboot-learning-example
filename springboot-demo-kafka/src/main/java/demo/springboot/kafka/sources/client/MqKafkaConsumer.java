@@ -3,9 +3,9 @@ package demo.springboot.kafka.sources.client;
 import com.alibaba.fastjson.JSON;
 import demo.springboot.kafka.sources.basic.domain.MqKafkaConsumerConfig;
 import demo.springboot.kafka.sources.basic.domain.MqKafkaConsumerConfigServer;
+import demo.springboot.kafka.sources.basic.domain.MqKafkaPartitions;
 import demo.springboot.kafka.sources.biz.IMqKafkaConsumer;
-import demo.springboot.kafka.sources.client.MqKafkaErrorHandler;
-import demo.springboot.kafka.sources.client.MqKafkaMessageListenerContainer;
+import demo.springboot.kafka.sources.biz.utils.KafkaUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.consumer.Consumer;
@@ -17,7 +17,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.AbstractMessageListenerContainer;
-import org.springframework.kafka.listener.ContainerProperties;
+import org.springframework.kafka.listener.config.ContainerProperties;
 import org.springframework.kafka.support.TopicPartitionInitialOffset;
 
 import java.lang.reflect.Field;
@@ -44,7 +44,7 @@ public class MqKafkaConsumer<T> implements InitializingBean, DisposableBean {
 
     private MqKafkaErrorHandler kafkaErrorHandler;
 
-    private long acktime = 6000;
+    private long ackTime = 6000;
 
     private List<MqKafkaMessageListenerContainer> listenerContainerList = new ArrayList<>();
 
@@ -61,11 +61,11 @@ public class MqKafkaConsumer<T> implements InitializingBean, DisposableBean {
 
 
     //ack 超时必须>=1000ms
-    public void setAcktime(Long time) {
+    public void setAckTime(Long time) {
         if (time == null || time <= 1000L) {
             throw new RuntimeException("ackTime必须大于1000ms");
         }
-        this.acktime = time;
+        this.ackTime = time;
     }
 
     /**
@@ -88,32 +88,31 @@ public class MqKafkaConsumer<T> implements InitializingBean, DisposableBean {
             throw new Exception("kafka消费者配置出错");
         }
 
-        KafkaConsumerLifeCycleController.addSingleConsumerContext(this);
         KafkaLifeCycleController.addSingleConsumerContext(this);
 
         Map<String, Object> nativeConfigs = KafkaUtil.getNativeConsumerConfigs(consumerFactory, CONSUMER_FACTORY_CONFIGS_FIELD);
-        MqKafkaConsumerConfigServer MqKafkaConsumerConfigServer = new MqKafkaConsumerConfigServer(consumerConfigs, nativeConfigs);
-        kafkaErrorHandler.setMqKafkaConsumerConfigServer(MqKafkaConsumerConfigServer);
-        consumerListener.setMqKafkaConsumerConfigServer(MqKafkaConsumerConfigServer);
-
+        MqKafkaConsumerConfigServer kafkaConsumerConfigServer = new MqKafkaConsumerConfigServer(consumerConfigs, nativeConfigs);
+        kafkaErrorHandler.setKafkaConsumerConfigServer(kafkaConsumerConfigServer);
+        consumerListener.setKafkaConsumerConfigServer(kafkaConsumerConfigServer);
+        //
         for (int i = 0; i < consumerConfigs.size(); i++) {
-            List<TopicPartitionInitialOffset> partitionses = new ArrayList<>();
-            int concurrency = consumerConfigs.get(i).getWorks();
-            String topic = consumerConfigs.get(i).getTopic();
+            List<TopicPartitionInitialOffset> topicPartitionInitialOffsets = new ArrayList<>();
+            int concurrency = consumerConfigs.get(i).getWorks();//执行线程数
+            String topic = consumerConfigs.get(i).getTopic();//topic
             ContainerProperties containerProperties;
             if (CollectionUtils.isNotEmpty(consumerConfigs.get(i).getPartitions())) {
-                for (KafkaPartitions partitions : consumerConfigs.get(i).getPartitions()) {
+                for (MqKafkaPartitions partitions : consumerConfigs.get(i).getPartitions()) {
                     if (partitions.getOffset() != null) {
-                        partitionses.add(new TopicPartitionInitialOffset(consumerConfigs.get(i).getTopic(),
+                        topicPartitionInitialOffsets.add(new TopicPartitionInitialOffset(consumerConfigs.get(i).getTopic(),
                                 partitions.getPartition(), partitions.getOffset()));
                     } else {
-                        partitionses.add(new TopicPartitionInitialOffset(consumerConfigs.get(i).getTopic(),
+                        topicPartitionInitialOffsets.add(new TopicPartitionInitialOffset(consumerConfigs.get(i).getTopic(),
                                 partitions.getPartition()));
                     }
                 }
-                concurrency = partitionses.size();
-                TopicPartitionInitialOffset[] partitionInitialOffsets = partitionses
-                        .toArray(new TopicPartitionInitialOffset[partitionses.size()]);
+                concurrency = topicPartitionInitialOffsets.size();
+                TopicPartitionInitialOffset[] partitionInitialOffsets = topicPartitionInitialOffsets
+                        .toArray(new TopicPartitionInitialOffset[topicPartitionInitialOffsets.size()]);
                 containerProperties = new ContainerProperties(partitionInitialOffsets);
             } else {
                 containerProperties = new ContainerProperties(topic);
@@ -121,7 +120,7 @@ public class MqKafkaConsumer<T> implements InitializingBean, DisposableBean {
 
             containerProperties.setMessageListener(consumerListener);
             containerProperties.setAckMode(ackMode);
-            containerProperties.setAckTime(acktime);
+            containerProperties.setAckTime(ackTime);
             containerProperties.setErrorHandler(kafkaErrorHandler);
 
             MqKafkaMessageListenerContainer kafkaMessageListenerContainer = new MqKafkaMessageListenerContainer(

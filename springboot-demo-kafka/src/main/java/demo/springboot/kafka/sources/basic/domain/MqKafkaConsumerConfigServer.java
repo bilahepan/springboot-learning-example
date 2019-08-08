@@ -1,10 +1,4 @@
 package demo.springboot.kafka.sources.basic.domain;
-
-/**
- * @author: 文若[gaotc@tuya.com]
- * @date: 2019/7/25 下午9:24
- */
-
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
@@ -14,6 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ *Kafka 消费者配置信息
+ *@author: 文若[gaotc@tuya.com]
+ *@date: 2019/8/7 下午1:59
+ */
 public class MqKafkaConsumerConfigServer {
 
     protected static Logger logger = LoggerFactory.getLogger(MqKafkaConsumerConfigServer.class);
