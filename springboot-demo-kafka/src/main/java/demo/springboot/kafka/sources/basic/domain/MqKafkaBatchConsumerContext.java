@@ -89,35 +89,35 @@ public class MqKafkaBatchConsumerContext implements InitializingBean, Disposable
 
         //初始化上下文中的属性
         List<MqKafkaConsumerConfig> kafkaConsumerConfigs = Collections.unmodifiableList(consumerConfigs);
-        Map<String,Object> nativeConfigs = KafkaUtil.getNativeConsumerConfigs(consumerFactory,CONSUMER_FACTORY_CONFIGS_FIELD);
-        MqKafkaConsumerConfigServer kafkaConsumerConfigServer = new MqKafkaConsumerConfigServer(kafkaConsumerConfigs,nativeConfigs);
+        Map<String, Object> nativeConfigs = KafkaUtil.getNativeConsumerConfigs(consumerFactory, CONSUMER_FACTORY_CONFIGS_FIELD);
+        MqKafkaConsumerConfigServer kafkaConsumerConfigServer = new MqKafkaConsumerConfigServer(kafkaConsumerConfigs, nativeConfigs);
         batchConsumerErrorHandler.setConfigServer(kafkaConsumerConfigServer);
 
-        if(Objects.nonNull(consumerConfigListener)){
+        if (Objects.nonNull(consumerConfigListener)) {
             consumerConfigListener.setConfigServer(kafkaConsumerConfigServer);
         }
 
-        if(Objects.nonNull(filterBatchConsumerListener)){
-            Assert.notNull(filterBatchConsumerListener.getConsumerConfigListener(),"配置过滤消息监听器时，消费监听器不能为null.");
-            Assert.notNull(filterBatchConsumerListener.getRecordFilterStrategy(),"配置过滤消息监听器时，过滤器不能为null.");
+        if (Objects.nonNull(filterBatchConsumerListener)) {
+            Assert.notNull(filterBatchConsumerListener.getConsumerConfigListener(), "配置过滤消息监听器时，消费监听器不能为null.");
+            Assert.notNull(filterBatchConsumerListener.getRecordFilterStrategy(), "配置过滤消息监听器时，过滤器不能为null.");
             //
             filterBatchConsumerListener.getConsumerConfigListener().setConfigServer(kafkaConsumerConfigServer);
             filterBatchConsumerListener.getRecordFilterStrategy().setConfigServer(kafkaConsumerConfigServer);
         }
 
         //
-        for(int i=0;i<kafkaConsumerConfigs.size();i++){
+        for (int i = 0; i < kafkaConsumerConfigs.size(); i++) {
             int concurrency = kafkaConsumerConfigs.get(i).getWorks();//执行线程数
             ContainerProperties containerProperties;
             //不为空
-            if(!CollectionUtils.isEmpty(kafkaConsumerConfigs.get(i).getPartitions())){
+            if (!CollectionUtils.isEmpty(kafkaConsumerConfigs.get(i).getPartitions())) {
                 List<TopicPartitionInitialOffset> partitionses = new ArrayList<>();
-                for(MqKafkaPartitions partitions:kafkaConsumerConfigs.get(i).getPartitions()){
+                for (MqKafkaPartitions partitions : kafkaConsumerConfigs.get(i).getPartitions()) {
                     //TODO
-                    if(partitions.getOffset()!=null){
-                        partitionses.add(new TopicPartitionInitialOffset(kafkaConsumerConfigs.get(i).getTopic(),partitions.getPartition(),partitions.getOffset()));
-                    }else {
-                        partitionses.add(new TopicPartitionInitialOffset(kafkaConsumerConfigs.get(i).getTopic(),partitions.getPartition()));
+                    if (partitions.getOffset() != null) {
+                        partitionses.add(new TopicPartitionInitialOffset(kafkaConsumerConfigs.get(i).getTopic(), partitions.getPartition(), partitions.getOffset()));
+                    } else {
+                        partitionses.add(new TopicPartitionInitialOffset(kafkaConsumerConfigs.get(i).getTopic(), partitions.getPartition()));
                     }
                 }
 
@@ -125,17 +125,17 @@ public class MqKafkaBatchConsumerContext implements InitializingBean, Disposable
                 TopicPartitionInitialOffset[] partitionInitialOffsets = partitionses.toArray(new TopicPartitionInitialOffset[partitionses.size()]);
                 //
                 containerProperties = new ContainerProperties(partitionInitialOffsets);
-            }else {
+            } else {
                 containerProperties = new ContainerProperties(kafkaConsumerConfigs.get(i).getTopic());
             }
 
             //带过滤的消费优先级高
-            containerProperties.setMessageListener(Objects.nonNull(filterBatchConsumerListener)?filterBatchConsumerListener:consumerConfigListener);
+            containerProperties.setMessageListener(Objects.nonNull(filterBatchConsumerListener) ? filterBatchConsumerListener : consumerConfigListener);
             containerProperties.setAckMode(ackMode);
             containerProperties.setAckTime(ackTime);
             containerProperties.setGenericErrorHandler(batchConsumerErrorHandler);
             //
-            MqKafkaMessageListenerContainer kafkaMessageListenerContainer = new MqKafkaMessageListenerContainer(consumerFactory,containerProperties);
+            MqKafkaMessageListenerContainer kafkaMessageListenerContainer = new MqKafkaMessageListenerContainer(consumerFactory, containerProperties);
             kafkaMessageListenerContainer.setConcurrency(concurrency);
             kafkaMessageListenerContainer.doStart();
             //
@@ -157,15 +157,23 @@ public class MqKafkaBatchConsumerContext implements InitializingBean, Disposable
      */
     @Override
     public void destroy() throws Exception {
-        //TODO 改逻辑无用，会引起线上故障
-        //logger.info("开始执行 stop kafka container");
-        //if (CollectionUtils.isNotEmpty(listenerContainerList)) {
-        //    for (MqKafkaMessageListenerContainer listenerContainer : listenerContainerList) {
-        //        listenerContainer.doStop();
-        //    }
-        //}
+        stop();
     }
 
+
+    /**
+     * 勿用，会引起线上故障，随时会删掉
+     */
+    @Deprecated
+    public void stop() {
+        logger.info("开始执行 stop kafka container.");
+        //不为空
+        if (!CollectionUtils.isEmpty(listenerContainerList)) {
+            for (MqKafkaMessageListenerContainer listenerContainer : listenerContainerList) {
+                listenerContainer.doStop();
+            }
+        }
+    }
 
     //-------------------------------------//
     public void setConsumerConfigs(List<MqKafkaConsumerConfig> consumerConfigs) {

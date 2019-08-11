@@ -93,6 +93,8 @@
         <module>springboot-demo-thread</module>
         <!--kafka实践-->
         <module>springboot-demo-kafka</module>
+        <!-- spring 和 kafka集成的使用-->
+        <module>springboot-demo-springKafka</module>
         <!--Netty实践-->
         <module>springboot-demo-netty</module>
         <!--Sentinel实践-->
