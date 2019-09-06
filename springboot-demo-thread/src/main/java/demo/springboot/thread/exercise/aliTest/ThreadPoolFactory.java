@@ -1,7 +1,6 @@
 package demo.springboot.thread.exercise.aliTest;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 线程池工厂
@@ -10,14 +9,14 @@ import java.util.concurrent.Executors;
  * @date: 2018/10/18 下午8:27
  */
 public class ThreadPoolFactory {
-
     //获取线程池
     public static ExecutorService getThreadPool() {
-        return FixedPoolHolder.POOL;
+        return ThreadPoolHolder.POOL;
     }
 
     //静态内部类
-    public static class FixedPoolHolder {
-        private static final ExecutorService POOL = Executors.newFixedThreadPool(10);
+    public static class ThreadPoolHolder {
+        private static final ThreadPoolExecutor POOL =  new ThreadPoolExecutor(10, 10, 0L,TimeUnit.MINUTES,
+                new LinkedBlockingDeque<Runnable>(10), Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
     }
 }

@@ -5,7 +5,6 @@ package demo.springboot.thread.exercise.aliTest;
  * @date: 2018/10/18 下午7:47
  */
 public class ConsultResult {
-
     public ConsultResult(boolean isEnable, String errorCode) {
         this.isEnable = isEnable;
         this.errorCode = errorCode;
