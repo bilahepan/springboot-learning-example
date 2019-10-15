@@ -112,6 +112,8 @@
         <module>springboot-demo-blogs</module>
         <!-- 示例-->
         <module>springboot-demo-example</module>
+        <!-- kotlin -->
+        <module>springboot-demo-kotlin</module>
 
 
     </modules>
