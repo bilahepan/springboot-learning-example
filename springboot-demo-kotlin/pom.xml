@@ -24,11 +24,15 @@
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <kotlin.version>1.3.50</kotlin.version>
+        <kotlinx.version>1.2.2</kotlinx.version>
     </properties>
 
     <dependencies>
-
         <!-- Web 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -70,11 +74,18 @@
         </dependency>
 
         <!--kotlin 核心库-->
+        <!--<dependency>-->
+        <!--<groupId>org.jetbrains.kotlin</groupId>-->
+        <!--<artifactId>kotlin-stdlib</artifactId>-->
+        <!--<version>${kotlin.version}</version>-->
+        <!--</dependency>-->
+        <!-- 面向 JDK 8，扩展版本的 Kotlin 标准库-->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <!--反射相关，fastJson会依赖这个-->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
@@ -90,15 +101,103 @@
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <!--协程相关的一些依赖-->
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
+            <version>${kotlinx.version}</version>
+        </dependency>
 
     </dependencies>
 
+    <!--同时编译 Kotlin 与 Java 源代码
+    要编译混合代码应用程序，必须在 Java 编译器之前调用 Kotlin 编译器。
+    按照 maven 的方式，这意味着应该使用以下方法在 maven-compiler-plugin 之前运行 kotlin-maven-plugin，
+    确保 pom.xml 文件中的 kotlin 插件位于 maven-compiler-plugin 上面-->
     <build>
+        <!--指定编译的文件目录-->
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
         <plugins>
-            <!-- Spring Boot Maven 插件 -->
+            <!--maven里执行测试用例的插件-->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!--编译 Kotlin 资源和模块-->
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                 <!--java 中的任何引用都可能是 null{: .keyword }，这使得 Kotlin 对来自 Java 的对象要求严格空安全是不现实的。
+                 Java 声明的类型在 Kotlin 中会被特别对待并称为平台类型。对这种类型的空检查会放宽， 因此它们的安全保证与在 Java 中相同。
+                 详细参考链接：https://www.codingsky.com/codebook/koltin/txt/java-interop.html-->
+                <configuration>
+                    <args>
+                        <arg>-Xjsr305=strict</arg>
+                    </args>
+                    <compilerPlugins>
+                        <plugin>spring</plugin>
+                    </compilerPlugins>
+                    <jvmTarget>1.8</jvmTarget>
+                </configuration>
+                <!--kotlin 默认是final的真的很疯狂，然后spring,hibernate这种最爱cglib动态代理的框架，遇到final就傻眼。
+                    kotlin-maven-allopen 就是解决这个麻烦的。
+                -->
+                <!--可以参考这个链接 https://www.jianshu.com/p/acaaf1e0461b-->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-allopen</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!--编译源代码插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <!-- Replacing default-compile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <!-- Replacing default-testCompile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>java-compile</id>
+                        <phase>compile</phase>
+                        <goals> <goal>compile</goal> </goals>
+                    </execution>
+                    <execution>
+                        <id>java-test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals> <goal>testCompile</goal> </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
