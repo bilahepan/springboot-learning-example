@@ -1,0 +1,32 @@
+2019-10-16 22:27:00 -Starting QuickStartApplication on MacBook-Pro-54.local with PID 26741 (/Users/gaotianci/study_workspace/springboot-learning-example/springboot-demo-kotlin/target/classes started by gaotianci in /Users/gaotianci/study_workspace/springboot-learning-example)
+2019-10-16 22:27:00 -No active profile set, falling back to default profiles: default
+2019-10-16 22:27:01 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@65466a6a: startup date [Wed Oct 16 22:27:01 CST 2019]; root of context hierarchy
+2019-10-16 22:27:01 -HV000001: Hibernate Validator 5.3.4.Final
+2019-10-16 22:27:02 -Bean 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration' of type [class org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-16 22:27:03 -Bean 'validator' of type [class org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-16 22:27:03 -Tomcat initialized with port(s): 8080 (http)
+2019-10-16 22:27:03 -Starting service Tomcat
+2019-10-16 22:27:03 -Starting Servlet Engine: Apache Tomcat/8.5.11
+2019-10-16 22:27:03 -Initializing Spring embedded WebApplicationContext
+2019-10-16 22:27:03 -Root WebApplicationContext: initialization completed in 2578 ms
+2019-10-16 22:27:03 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-10-16 22:27:03 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-10-16 22:27:03 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-10-16 22:27:03 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-10-16 22:27:03 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-10-16 22:27:04 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@65466a6a: startup date [Wed Oct 16 22:27:01 CST 2019]; root of context hierarchy
+2019-10-16 22:27:04 -Mapped "{[/book/hello],methods=[GET]}" onto public java.lang.String demo.springboot.web.HelloBookController.sayHello()
+2019-10-16 22:27:04 -Mapped "{[/hello],methods=[GET]}" onto public java.lang.String demo.springboot.web.HelloController.sayHello()
+2019-10-16 22:27:04 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-10-16 22:27:04 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-10-16 22:27:04 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-16 22:27:04 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-16 22:27:04 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-16 22:27:04 -Registering beans for JMX exposure on startup
+2019-10-16 22:27:04 -Initializing ProtocolHandler ["http-nio-8080"]
+2019-10-16 22:27:04 -Starting ProtocolHandler [http-nio-8080]
+2019-10-16 22:27:04 -Using a shared selector for servlet write/read
+2019-10-16 22:27:04 -Tomcat started on port(s): 8080 (http)
+2019-10-16 22:27:04 -Started QuickStartApplication in 4.168 seconds (JVM running for 6.804)
+2019-10-16 22:27:36 -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@65466a6a: startup date [Wed Oct 16 22:27:01 CST 2019]; root of context hierarchy
+2019-10-16 22:27:36 -Unregistering JMX-exposed beans on shutdown
