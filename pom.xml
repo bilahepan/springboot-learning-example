@@ -114,6 +114,8 @@
         <module>springboot-demo-example</module>
         <!-- kotlin -->
         <module>springboot-demo-kotlin</module>
+        <!--Java 设计模式-->
+        <module>springboot-demo-designPattern</module>
 
 
     </modules>
