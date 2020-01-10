@@ -116,6 +116,8 @@
         <module>springboot-demo-kotlin</module>
         <!--Java 设计模式-->
         <module>springboot-demo-designPattern</module>
+        <!-- websocket-->
+        <module>springboot-demo-websocket</module>
 
 
     </modules>
