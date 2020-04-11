@@ -20,15 +20,17 @@ public class ReentrantLockTest {
         @Override
         public void run() {
             for (int i = 0; i < 10; ) {
+                lock.lock();
                 try {
-                    lock.lock();
-                    while (state.get() % 3 == 0) {// 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
+                    // 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
+                    while (state.get() % 3 == 0) {
                         System.out.print("A");
                         state.addAndGet(1);
                         i++;
                     }
                 } finally {
-                    lock.unlock();// unlock()操作必须放在finally块中
+                    // unlock()操作必须放在finally块中
+                    lock.unlock();
                 }
             }
         }
@@ -38,8 +40,8 @@ public class ReentrantLockTest {
         @Override
         public void run() {
             for (int i = 0; i < 10; ) {
+                lock.lock();
                 try {
-                    lock.lock();
                     while (state.get() % 3 == 1) {// 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
                         System.out.print("B");
                         state.addAndGet(1);
@@ -56,8 +58,8 @@ public class ReentrantLockTest {
         @Override
         public void run() {
             for (int i = 0; i < 10; ) {
+                lock.lock();
                 try {
-                    lock.lock();
                     while (state.get() % 3 == 2) {// 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
                         System.out.print("C\n");
                         state.addAndGet(1);
