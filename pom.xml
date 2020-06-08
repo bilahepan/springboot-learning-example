@@ -119,7 +119,7 @@
         <!-- websocket-->
         <module>springboot-demo-websocket</module>
         <!--excel文档操作 -->
-        <module>springboot-demo-xlsx</module>
+        <module>springboot-demo-excel</module>
 
 
     </modules>
