@@ -118,6 +118,8 @@
         <module>springboot-demo-designPattern</module>
         <!-- websocket-->
         <module>springboot-demo-websocket</module>
+        <!--excel文档操作 -->
+        <module>springboot-demo-xlsx</module>
 
 
     </modules>

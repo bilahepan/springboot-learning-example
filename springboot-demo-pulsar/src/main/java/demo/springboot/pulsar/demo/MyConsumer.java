@@ -23,13 +23,6 @@ public class MyConsumer {
                 .serviceUrl(SERVER_URL)
                 .build();
 
-        //灰柯（张永红） 6-18 上午 10:54
-        //j5eegctww4yvawmkqpk4/internal
-        //j5eegctww4yvawmkqpk4_1/internal
-        //j5eegctww4yvawmkqpk4_2/internal
-        //
-        //灰柯（张永红） 6-18 上午 10:54
-        //172.20.41.12:6650
 
         Consumer consumer = client.newConsumer()
                 .consumerName("my-consumer")
