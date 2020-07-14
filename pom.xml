@@ -120,6 +120,8 @@
         <module>springboot-demo-websocket</module>
         <!--excel文档操作 -->
         <module>springboot-demo-excel</module>
+        <!-- 本地或嵌入式数据库 -->
+        <module>springboot-demo-localdb</module>
 
 
     </modules>
