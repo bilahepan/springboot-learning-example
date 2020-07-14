@@ -9,6 +9,7 @@ import java.util.concurrent.ForkJoinPool;
 public class DemoTest {
 
     public static void main(String[] args) {
+        //1kw
         ForkJoinImpl forkJoin = new ForkJoinImpl(0, 10000000);
         Long invoke = new ForkJoinPool().invoke(forkJoin);
         System.out.println("invoke = " + invoke);

@@ -7,6 +7,13 @@ import java.util.concurrent.*;
  * @date: 2019/9/1 下午9:01
  */
 public class ThreadPoolFactory {
+    //int queueSize = poolExecutor.getQueue().size();
+    //        int activeCount = poolExecutor.getActiveCount();
+    //        long completedTaskCount = poolExecutor.getCompletedTaskCount();
+    //        long taskCount = poolExecutor.getTaskCount();
+    //        //返回线程池中有史以来同时再池的最大数量
+    //        //poolExecutor.getLargestPoolSize()
+    //        long largestPoolSize = poolExecutor.getLargestPoolSize();
     /**  */
     public static ExecutorService getCustomThreadPool() {
         return ThreadPoolHolder.poolExecutor;

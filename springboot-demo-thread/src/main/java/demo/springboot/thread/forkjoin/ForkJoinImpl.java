@@ -6,6 +6,7 @@ package demo.springboot.thread.forkjoin;
  */
 public class ForkJoinImpl extends java.util.concurrent.RecursiveTask<Long> {
     //临界值，就是结束值减开始值的结果如果小于这个值那么就不拆分了，大于这个值才会拆分
+    //10W
     private final int MEDIAN_NUM = 100000;
     //从多少计算
     private int start_num = 0;
