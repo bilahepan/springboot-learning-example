@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * @date: 2019/9/1 下午9:01
  */
 public class ThreadPoolFactory {
-    //int queueSize = poolExecutor.getQueue().size();
+    //        int queueSize = poolExecutor.getQueue().size();
     //        int activeCount = poolExecutor.getActiveCount();
     //        long completedTaskCount = poolExecutor.getCompletedTaskCount();
     //        long taskCount = poolExecutor.getTaskCount();
