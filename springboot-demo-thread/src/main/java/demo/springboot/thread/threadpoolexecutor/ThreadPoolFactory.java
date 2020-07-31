@@ -14,6 +14,10 @@ public class ThreadPoolFactory {
     //        //返回线程池中有史以来同时再池的最大数量
     //        //poolExecutor.getLargestPoolSize()
     //        long largestPoolSize = poolExecutor.getLargestPoolSize();
+
+    //poolExecutor.getQueue.seize()
+    //poolExecutor.getActiveCount()
+    //poolExecutor.getLargestPoolSize()
     /**  */
     public static ExecutorService getCustomThreadPool() {
         return ThreadPoolHolder.poolExecutor;

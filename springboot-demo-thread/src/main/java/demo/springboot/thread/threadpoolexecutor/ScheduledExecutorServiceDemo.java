@@ -12,6 +12,47 @@ public class ScheduledExecutorServiceDemo {
     public static void main(String[] args) {
 
 
+        //1
+        //Executors.newScheduledThreadPool()
+        //public ScheduledThreadPoolExecutor(int corePoolSize) {
+        //        super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
+        //              new DelayedWorkQueue());
+        //    }
+
+        //2
+        //Executors.newSingleThreadExecutor()
+        //public static ExecutorService newSingleThreadExecutor() {
+        //        return new FinalizableDelegatedExecutorService
+        //            (new ThreadPoolExecutor(1, 1,
+        //                                    0L, TimeUnit.MILLISECONDS,
+        //                                    new LinkedBlockingQueue<Runnable>()));
+        //    }
+
+
+        //3
+        //Executors.newCachedThreadPool()
+        //public static ExecutorService newCachedThreadPool() {
+        //        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+        //                                      60L, TimeUnit.SECONDS,
+        //                                      new SynchronousQueue<Runnable>());
+        //    }
+
+
+        //4
+        //Executors.newFixedThreadPool()
+        //public static ExecutorService newFixedThreadPool(int nThreads) {
+        //        return new ThreadPoolExecutor(nThreads, nThreads,
+        //                                      0L, TimeUnit.MILLISECONDS,
+        //                                      new LinkedBlockingQueue<Runnable>());
+        //    }
+
+
+        //默认拒绝策略
+        //private static final RejectedExecutionHandler defaultHandler =
+        //        new AbortPolicy();
+
+
+
         ScheduledExecutorService scheduledPool = newScheduledThreadPool(4);
 
 
