@@ -18,6 +18,11 @@ public class ThreadPoolFactory {
     //poolExecutor.getQueue.seize()
     //poolExecutor.getActiveCount()
     //poolExecutor.getLargestPoolSize()
+
+    //newScheduledThreadPool n,Integer.Max,DelayedWorkQueue
+    //newSingleThreadExecutor 1,1,LinkedBlockingQueue
+    //newCachedThreadPool 0,Integer.Max,SynchronousQueue
+    //newFixedThreadPool n,n,LinkedBlockingQueue
     /**  */
     public static ExecutorService getCustomThreadPool() {
         return ThreadPoolHolder.poolExecutor;

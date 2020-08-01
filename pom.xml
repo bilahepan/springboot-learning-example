@@ -122,6 +122,8 @@
         <module>springboot-demo-excel</module>
         <!-- 本地或嵌入式数据库 -->
         <module>springboot-demo-localdb</module>
+        <!-- grpc -->
+        <module>springboot-demo-grpc</module>
 
 
     </modules>
