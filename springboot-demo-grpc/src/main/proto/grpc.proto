@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+//stub选项
+option java_package = "com.demo.grpc.api";
+option java_outer_classname = "RPCDataPointFilterServiceApi";
+option java_multiple_files = true;
+
+//定义包
+package com.demo.grpc.api;
+
+//服务接口定义，服务端和客户端都要遵守该接口进行通信
+service RPCDataPointFilterService {
+rpc getFilter(RPCFilterRequest) returns (RPCFilterResponse){}
+}
+
+//定义消息（请求体）
+message RPCFilterRequest {
+    string uid = 1;
+    string pid = 2;
+    string uuid = 3;
+    string devId = 4;
+    string ownerId = 5;
+}
+
+
+//定义消息（响应体）
+message RPCFilterResponse {
+    bool res =  1;
+}
