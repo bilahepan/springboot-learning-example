@@ -10,8 +10,12 @@ package com.demo.grpc.api;
 
 //服务接口定义，服务端和客户端都要遵守该接口进行通信
 service RPCDataPointFilterService {
+//
 rpc getFilter(RPCFilterRequest) returns (RPCFilterResponse){}
+//双向流方法
+rpc doubleStream(stream HelloRequest) returns (stream HelloReply){}
 }
+
 
 //定义消息（请求体）
 message RPCFilterRequest {
@@ -26,4 +30,14 @@ message RPCFilterRequest {
 //定义消息（响应体）
 message RPCFilterResponse {
     bool res =  1;
+}
+
+//
+message HelloRequest {
+string x = 1;
+}
+
+//
+message HelloReply {
+string y = 1;
 }
