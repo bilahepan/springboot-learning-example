@@ -7,7 +7,7 @@ import io.grpc.ServerBuilder;
 import java.util.concurrent.TimeUnit;
 
 public class GRPCServer {
-    private static final int port = 9999;
+    private static final int port = 9998;
 
     public static void main(String[] args) throws Exception {
         Server server = ServerBuilder.forPort(port)
@@ -15,8 +15,7 @@ public class GRPCServer {
                 .build()
                 .start();
         System.out.println("---grpc server started success! port=" + port + "---");
-        server.awaitTermination(12,TimeUnit.HOURS);
-        //---
+        server.awaitTermination(12, TimeUnit.HOURS);
     }
 
 

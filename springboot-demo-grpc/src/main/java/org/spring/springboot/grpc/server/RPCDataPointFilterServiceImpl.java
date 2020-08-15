@@ -4,6 +4,8 @@ import com.demo.grpc.api.*;
 import io.grpc.stub.StreamObserver;
 
 public class RPCDataPointFilterServiceImpl extends RPCDataPointFilterServiceGrpc.RPCDataPointFilterServiceImplBase {
+
+
     @Override
     public void getFilter(RPCFilterRequest request, StreamObserver<RPCFilterResponse> responseObserver) {
         RPCFilterResponse response = null;
@@ -27,9 +29,9 @@ public class RPCDataPointFilterServiceImpl extends RPCDataPointFilterServiceGrpc
         return new StreamObserver<HelloRequest>() {
             @Override
             public void onNext(HelloRequest request) {
-                System.err.println("收到请求:x=" + request.getX());
+                //System.err.println("收到请求:x=" + request.getX());
                 //
-                HelloReply result = HelloReply.newBuilder().setY("response reply. t="+System.currentTimeMillis()).build();
+                HelloReply result = HelloReply.newBuilder().setY("response reply.input={" + request.getX() + "} t=" + System.currentTimeMillis()).build();
                 responseObserver.onNext(result);
             }
 
