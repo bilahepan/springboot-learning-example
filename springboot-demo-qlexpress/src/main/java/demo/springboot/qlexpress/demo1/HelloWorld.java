@@ -1,4 +1,4 @@
-package demo.springboot.qlexpress.helloworld1;
+package demo.springboot.qlexpress.demo1;
 
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
