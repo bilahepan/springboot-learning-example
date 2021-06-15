@@ -82,7 +82,7 @@ http://svip.iocoder.cn/Netty/intro-2/
    当一个连接到达时，Netty 就会创建一个 Channel，然后从 EventLoopGroup 中分配一个 EventLoop 来给这个 Channel 绑定上，在该 Channel 的整个生命周期中都是有这个绑定的 EventLoop 来服务的。
 
 
- ## ChannelFuture
+ ## ChannelFuture，ChannelFutureListener
      Netty 为异步非阻塞，即所有的 I/O 操作都为异步的，因此，我们不能立刻得知消息是否已经被处理了。
      Netty 提供了 ChannelFuture 接口，通过该接口的 #addListener(...) 方法，
      注册一个 ChannelFutureListener，当操作执行成功或者失败时，监听就会自动触发返回结果。
