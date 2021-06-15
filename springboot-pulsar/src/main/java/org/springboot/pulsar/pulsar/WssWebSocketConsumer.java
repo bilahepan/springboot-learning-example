@@ -13,7 +13,6 @@ import org.springboot.pulsar.pulsar.mq.WssWebSocketClient;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.net.URI;
 import java.net.URISyntaxException;
