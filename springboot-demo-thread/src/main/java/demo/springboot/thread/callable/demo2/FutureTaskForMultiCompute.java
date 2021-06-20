@@ -14,7 +14,7 @@ public class FutureTaskForMultiCompute {
     public static void main(String[] args) {
         //
         //创建任务集合
-        List<FutureTask<Integer>> futureList = new ArrayList<>();
+        List<FutureTask<Integer>> futureList = new ArrayList<FutureTask<Integer>>();
         //创建线程池
         ExecutorService executor = Executors.newFixedThreadPool(10);
         //
@@ -22,7 +22,7 @@ public class FutureTaskForMultiCompute {
             //创建Callable对象
             ComputeTask task = new ComputeTask(i, "taskName-" + i);
             //传入Callable对象，创建FutureTask对象
-            FutureTask<Integer> futureTask = new FutureTask<>(task);
+            FutureTask<Integer> futureTask = new FutureTask<Integer>(task);
             //
             futureList.add(futureTask);
             //任务提交
